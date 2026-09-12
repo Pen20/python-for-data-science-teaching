@@ -20,6 +20,8 @@ In this course, we will use **Git**, **GitHub**, and **Miniconda** to set up our
 
 You do **not** need to install Python separately before installing Miniconda. Miniconda allows us to create and manage an isolated environment containing the Python version and packages required for this course.
 
+---
+
 ### 1. Install Git
 
 Git is a version control system that we will use to manage our code and course projects.
@@ -49,6 +51,10 @@ After installation, close and reopen PowerShell, then verify:
 ```bash
 git --version
 ```
+
+---
+
+### 1. Install Git — macOS
 
 #### macOS
 
@@ -124,6 +130,10 @@ conda create -n python-ds python=3.12
 ```
 
 Conda will display the packages that will be installed.
+
+---
+
+### 4. Create the Course Environment — confirmation
 
 When prompted:
 
@@ -208,6 +218,10 @@ conda env list
 The `python-ds` environment should appear in the list.
 
 The active environment is usually indicated by `*`.
+
+---
+
+### 7. Verify Your Development Environment — example
 
 For example:
 

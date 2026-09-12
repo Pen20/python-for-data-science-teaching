@@ -44,34 +44,37 @@ jobs:
       # 3. Install Marp CLI
       # ---------------------------------------------------------
       - name: Install Marp CLI
-        run: npm install -g @marp-team/marp-cli
+        run: npm install -g @marp-team/marp-cli@4.5.0
 
       # ---------------------------------------------------------
       # 4. Generate HTML lecture slides
       # ---------------------------------------------------------
       - name: Build lecture HTML
-        run: |
-          marp \
-            --bespoke.progress \
-            --theme style/custom.css \
-            --html \
-            -I lectures/ \
-            -o lectures/
+        run: >-
+          marp
+          --bespoke.progress
+          --theme style/custom.css
+          --html
+          lectures/lecture-01-introduction-to-data-science/slides.md
+          -o lectures/lecture-01-introduction-to-data-science/slides.html
 
       # ---------------------------------------------------------
       # 5. Generate PDF lecture slides
       # ---------------------------------------------------------
       - name: Build lecture PDFs
+        run: >-
+          marp
+          --theme style/custom.css
+          --pdf
+          --pdf-outlines
+          --allow-local-files
+          lectures/lecture-01-introduction-to-data-science/slides.md
+          -o lectures/lecture-01-introduction-to-data-science/slides.pdf
+
+      - name: Verify generated slides
         run: |
-          marp \
-            --bespoke.progress \
-            --theme style/custom.css \
-            --html \
-            -I lectures/ \
-            -o lectures/ \
-            --pdf \
-            --pdf-outlines \
-            --allow-local-files
+          test -s lectures/lecture-01-introduction-to-data-science/slides.html
+          test -s lectures/lecture-01-introduction-to-data-science/slides.pdf
 
       # ---------------------------------------------------------
       # 6. Configure GitHub Pages

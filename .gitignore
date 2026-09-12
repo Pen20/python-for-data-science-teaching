@@ -1,0 +1,7 @@
+# Generated Marp output (built by GitHub Actions for GitHub Pages)
+lectures/**/slides.html
+lectures/**/slides.pdf
+
+# Jupyter temporary files
+.ipynb_checkpoints/
+
