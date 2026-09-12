@@ -1,0 +1,314 @@
+/* @theme custom */
+
+@import "default";
+
+/* =========================================================
+   General slide layout
+   ========================================================= */
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  padding: 40px;
+
+  font-size: 28px;
+  line-height: 1.35;
+}
+
+/* =========================================================
+   Title slide
+   ========================================================= */
+
+section.titlepage {
+  justify-content: center;
+  text-align: center;
+
+  padding: 70px;
+
+  font-size: 32px;
+}
+
+/* =========================================================
+   Headings
+   ========================================================= */
+
+h1 {
+  color: #4949e7;
+
+  padding-bottom: 8px;
+
+  border-bottom: 2px solid #4949e7;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h1 strong,
+h2 strong,
+h3 strong,
+h4 strong,
+h5 strong,
+h6 strong {
+  color: #4949e7;
+}
+
+/* =========================================================
+   Links
+   ========================================================= */
+
+a {
+  color: #4949e7;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   Code
+   ========================================================= */
+
+code {
+  font-size: 90%;
+}
+
+pre {
+  padding: 15px;
+
+  border-radius: 6px;
+
+  font-size: 80%;
+}
+
+/* =========================================================
+   Two-column layouts
+   ========================================================= */
+
+.columns {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 2rem;
+}
+
+/* =========================================================
+   Tables
+   ========================================================= */
+
+table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  font-size: 85%;
+}
+
+th,
+td {
+  padding: 8px 12px;
+
+  border: 1px solid #dddddd;
+}
+
+th {
+  font-weight: bold;
+}
+
+/* =========================================================
+   Images
+   ========================================================= */
+
+img {
+  max-width: 100%;
+  max-height: 500px;
+
+  object-fit: contain;
+}
+
+/* =========================================================
+   Alert / Important text
+   ========================================================= */
+
+alert,
+.alert {
+  color: #d90429;
+  font-weight: bold;
+}
+
+/* =========================================================
+   Slide number
+   ========================================================= */
+
+section::after {
+  content: attr(data-marpit-pagination) " / " attr(data-marpit-pagination-total);
+
+  font-size: 16px;
+}
+/* @theme custom */
+
+@import "default";
+
+/* =========================================================
+   General slide layout
+   ========================================================= */
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  padding: 40px;
+
+  font-size: 28px;
+  line-height: 1.35;
+}
+
+/* =========================================================
+   Title slide
+   ========================================================= */
+
+section.titlepage {
+  justify-content: center;
+  text-align: center;
+
+  padding: 70px;
+
+  font-size: 32px;
+}
+
+/* =========================================================
+   Headings
+   ========================================================= */
+
+h1 {
+  color: #4949e7;
+
+  padding-bottom: 8px;
+
+  border-bottom: 2px solid #4949e7;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h1 strong,
+h2 strong,
+h3 strong,
+h4 strong,
+h5 strong,
+h6 strong {
+  color: #4949e7;
+}
+
+/* =========================================================
+   Links
+   ========================================================= */
+
+a {
+  color: #4949e7;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   Code
+   ========================================================= */
+
+code {
+  font-size: 90%;
+}
+
+pre {
+  padding: 15px;
+
+  border-radius: 6px;
+
+  font-size: 80%;
+}
+
+/* =========================================================
+   Two-column layouts
+   ========================================================= */
+
+.columns {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 2rem;
+}
+
+/* =========================================================
+   Tables
+   ========================================================= */
+
+table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  font-size: 85%;
+}
+
+th,
+td {
+  padding: 8px 12px;
+
+  border: 1px solid #dddddd;
+}
+
+th {
+  font-weight: bold;
+}
+
+/* =========================================================
+   Images
+   ========================================================= */
+
+img {
+  max-width: 100%;
+  max-height: 500px;
+
+  object-fit: contain;
+}
+
+/* =========================================================
+   Alert / Important text
+   ========================================================= */
+
+alert,
+.alert {
+  color: #d90429;
+  font-weight: bold;
+}
+
+/* =========================================================
+   Slide number
+   ========================================================= */
+
+section::after {
+  content: attr(data-marpit-pagination) " / " attr(data-marpit-pagination-total);
+
+  font-size: 16px;
+}

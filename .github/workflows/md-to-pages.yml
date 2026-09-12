@@ -1,0 +1,95 @@
+name: Build and Publish Course Materials
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # ---------------------------------------------------------
+      # 1. Download the repository
+      # ---------------------------------------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ---------------------------------------------------------
+      # 2. Convert the main README.md into index.html
+      # ---------------------------------------------------------
+      - name: Convert README to HTML
+        uses: jaywcjlove/markdown-to-html-cli@main
+        with:
+          source: README.md
+          output: index.html
+          github-corners: https://github.com/Pen20/python-for-data-science-teaching
+
+      # ---------------------------------------------------------
+      # 3. Install Marp CLI
+      # ---------------------------------------------------------
+      - name: Install Marp CLI
+        run: npm install -g @marp-team/marp-cli
+
+      # ---------------------------------------------------------
+      # 4. Generate HTML lecture slides
+      # ---------------------------------------------------------
+      - name: Build lecture HTML
+        run: |
+          marp \
+            --bespoke.progress \
+            --theme style/custom.css \
+            --html \
+            -I lectures/ \
+            -o lectures/
+
+      # ---------------------------------------------------------
+      # 5. Generate PDF lecture slides
+      # ---------------------------------------------------------
+      - name: Build lecture PDFs
+        run: |
+          marp \
+            --bespoke.progress \
+            --theme style/custom.css \
+            --html \
+            -I lectures/ \
+            -o lectures/ \
+            --pdf \
+            --pdf-outlines \
+            --allow-local-files
+
+      # ---------------------------------------------------------
+      # 6. Configure GitHub Pages
+      # ---------------------------------------------------------
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # ---------------------------------------------------------
+      # 7. Upload the generated website
+      # ---------------------------------------------------------
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./"
+
+      # ---------------------------------------------------------
+      # 8. Publish the website
+      # ---------------------------------------------------------
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,8 +1,18 @@
+---
+marp: true
+theme: custom
+paginate: true
+---
+
+<!-- _class: titlepage -->
+
 # Lecture 1: Introduction to Data Science and Development Environment
 
 **Course:** Python for Data Science 2026/2027  
 **Instructor:** Motognon Wastalas d'Assise Dogbalou  
 **Institution:** Open University of Kenya
+
+---
 
 ## Part 1: Setting Up Your Development Environment
 
